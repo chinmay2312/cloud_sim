@@ -1,7 +1,7 @@
 # Homework 1
 ### Description: create cloud simulators for evaluating executions of applications in cloud datacenters with different characteristics and deployment models.
 ### Grade: 5% + bonus up to 3%
-#### Git repo is available at git clone git@bitbucket.org:cs441_spring2019/homework1.git
+#### You can obtain this Git repo using the command git clone git@bitbucket.org:cs441_spring2019/homework1.git
 
 ## Preliminaries
 Your first homework assignment is important, since some of the following homeworks and the course project will be built on the exercises that you will do in this homework. As part of this homework assignment you will gain experience with creating and managing your Git repository, obtaining an open-source cloud simulation infrastructure Java project from a public Git repo, creating JUnit tests, and creating your SBT build and run scripts for your simulation application. Doing this homework is essential for successful completion of the rest of this course, since all other homeworks and the course project will share the same features of this homework: branching, merging, committing, pushing your code into your Git repo, creating test cases and build scripts, and using various tools for diagnosing problems with virtual machines and your applications.
