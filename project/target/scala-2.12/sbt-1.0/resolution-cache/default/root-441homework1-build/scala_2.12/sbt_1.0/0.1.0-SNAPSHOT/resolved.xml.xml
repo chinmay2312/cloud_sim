@@ -4,7 +4,7 @@
 		module="root-441homework1-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20190125212954"
+		publication="20190127133048"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
