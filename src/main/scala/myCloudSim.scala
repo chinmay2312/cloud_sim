@@ -1,134 +1,138 @@
-import java.util
-import java.util.{Calendar, LinkedList}
 
-import scala.collection.{JavaConverters, mutable}
-import com.typesafe.scalalogging.Logger
-import com.typesafe.config
-import org.cloudbus.cloudsim.Cloudlet
-import org.cloudbus.cloudsim.CloudletSchedulerTimeShared
-import org.cloudbus.cloudsim.Datacenter
-import org.cloudbus.cloudsim.DatacenterBroker
-import org.cloudbus.cloudsim.DatacenterCharacteristics
-import org.cloudbus.cloudsim.Host
-import org.cloudbus.cloudsim.Log
-import org.cloudbus.cloudsim.Pe
-import org.cloudbus.cloudsim.Storage
-import org.cloudbus.cloudsim.UtilizationModel
-import org.cloudbus.cloudsim.UtilizationModelFull
-import org.cloudbus.cloudsim.Vm
-import org.cloudbus.cloudsim.VmAllocationPolicySimple
-import org.cloudbus.cloudsim.VmSchedulerTimeShared
-import org.cloudbus.cloudsim.core.CloudSim
-import org.cloudbus.cloudsim.provisioners.BwProvisionerSimple
-import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple
-import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple
+import java.util.Calendar
+//import java.util.List
+import java.text.DecimalFormat
 
 import scala.collection.JavaConverters._
-import scala.collection.convert.WrapAsJava
+import collection.JavaConverters._
+import org.cloudbus.cloudsim._
+import org.cloudbus.cloudsim.Cloudlet
+import org.cloudbus.cloudsim.core.CloudSim
+import org.cloudbus.cloudsim.provisioners.{BwProvisionerSimple, PeProvisionerSimple, RamProvisionerSimple}
 
-object myCloudSim{
+object myCloudSim {
 
-    def main(args: Array[String]): Unit = {
-        val numUsers = 1
+    //private val cloudletList=List[Cloudlet]()
+    //private val vmList=List[Vm]()
 
-        val cal = Calendar.getInstance()
+    def main(args: Array[String]) {
+        println("Hello, world!")
+        val num_user =1
+        val calendar = Calendar.getInstance()
+        val trace_flag = false
 
-        CloudSim.init(numUsers, cal, false)
+        CloudSim.init(num_user,calendar,trace_flag)
 
-        val datacenter = createDatacenter("Datacenter1")
-        val datacenterbroker = new DatacenterBroker("Broker")
-        val brokerID = datacenterbroker.getId()
+        val datacenter0:Datacenter = createDatacenter("Datacenter_0")
 
-        val vmid = 0
-        val mips = 100
-        val size = 10000
+        val broker:DatacenterBroker=createBroker()
+        val brokerId:Int = broker.getId()
+
+        val vmid =0
+        val mips = 1000
+        val size:Long = 10000
         val ram = 512
         val bw = 1000
         val pesNumber = 1
-        val vmm = "Xen"
-        val vmList = java.util.Arrays.asList(new Vm(vmid, brokerID, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared))
+        val vmm:String = "Xen"
 
-        datacenterbroker.submitVmList(vmList)
+        val vm:Vm = new Vm(vmid, brokerId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared())
 
-        val id = 0
+        val vmList:List[Vm]=List(vm)
+
+        broker.submitVmList(vmList.asJava)
+
+        val id =0
         val length = 400000
         val fileSize = 300
         val outputSize = 300
-        val utilizationModel = new UtilizationModelFull()
+        val utilizationModel: UtilizationModel = new UtilizationModelFull()
 
-        val cloudlet = new Cloudlet(id, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel)
-        cloudlet.setUserId(brokerID)
+        val cloudlet:Cloudlet =new Cloudlet(id, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel)
+        cloudlet.setUserId(brokerId)
         cloudlet.setVmId(vmid)
 
-        val cloudletList = java.util.Arrays.asList(cloudlet)
+        val cloudletList:List[Cloudlet] = List(cloudlet)
 
-        datacenterbroker.submitCloudletList(cloudletList)
+        broker.submitCloudletList(cloudletList.asJava)
 
         CloudSim.startSimulation()
-
         CloudSim.stopSimulation()
 
-        val indent = "    "
-        Log.printLine()
-        Log.printLine("========== OUTPUT ==========")
-        Log.printLine("Cloudlet ID" + indent + "STATUS" + indent + "Data center ID" + indent + "VM ID" + indent + "Time" + indent + "Start Time" + indent + "Finish Time")
-        val messages = datacenterbroker.getCloudletReceivedList()
-        messages.forEach { (e : Cloudlet) => if(e.getCloudletStatus() == Cloudlet.SUCCESS)
-            {
-                Log.printLine(indent + e.getCloudletId + indent + indent + "SUCCESS" + indent + indent + e.getResourceId() + indent + indent + indent + e.getVmId() + indent + indent + e.getActualCPUTime() + indent + indent + e.getExecStartTime() + indent + indent + e.getFinishTime())
-            }
-          else
-            {
-                Log.printLine(indent + e.getCloudletId + indent + indent + "FAILURE" + indent + indent + e.getResourceId() + indent + indent + indent + e.getVmId() + indent + indent + e.getActualCPUTime() + indent + indent + e.getExecStartTime() + indent + indent + e.getFinishTime())
-            }
-        }
-
-        Log.printLine("Finished")
-
-
+        val newList:java.util.List[Cloudlet] = broker.getCloudletReceivedList()
+        printCloudletList(newList)
     }
-    def createDatacenter(datacenterName : String) : Datacenter = {
-        //Creating the machine and all its properties
-        val mips = 2000
-        val peList = java.util.Arrays.asList(new Pe(0, new PeProvisionerSimple(mips)))
 
-        val hostId = 0
-        val ram = 2048
-        val storage = 1000000
-        val bw = 10000
+    def createDatacenter(name: String): Datacenter ={
 
-        val hostList = java.util.Arrays.asList(
-            new Host(
-                hostId,
-                new RamProvisionerSimple(ram),
-                new BwProvisionerSimple(bw),
-                storage,
-                peList,
-                new VmSchedulerTimeShared(peList)
-            )
-        )
-        //Finished Machine
 
-        //Creating the Datacenter characteristics object that stores the datacenter's properties
-        val arch = "x86"
-        val os = "Linus"
-        val vmm = "Xen"
-        val time_zone = 10.0
-        val cost = 3.0
-        val costPerMem = 0.05
-        val costPerStorage = 0.001
-        val costPerBw = 0.1
+      //val hostList =List[Host]()
 
-        val storageList = new util.LinkedList[Storage]
-        // we are not adding SAN
-        val datacenterChar = new DatacenterCharacteristics(arch, os, vmm, hostList, time_zone, cost, costPerMem, costPerStorage, costPerBw)
-        //Finished datacenter characteristics
+      //val peList:List[Pe] =List[Pe]()
 
-        //Creating the datacenter
-        val datacenter = new Datacenter(datacenterName, datacenterChar, new VmAllocationPolicySimple(hostList), storageList, 0)
+        val mips:Int = 1000
 
-        datacenter
+      val peList:List[Pe] = List(new Pe(0, new PeProvisionerSimple(mips)))
+      Log.printLine("peList size="+peList.length)
+      //for(Pe pe:peList)
+
+      val hostId:Int = 0
+      val ram:Int = 2048
+      val storage:Long = 1000000
+      val bw:Int = 10000
+
+      val hostList:List[Host]= List(new Host(hostId,
+          new RamProvisionerSimple(ram),
+          new BwProvisionerSimple(bw),
+          storage, peList.asJava,
+          new VmSchedulerTimeShared(peList.asJava)))
+
+      val arch:String = "x86"
+      val os:String = "Linux"
+      val vmm:String = "Xen"
+
+      val time_zone:Double = 10.0
+      val cost:Double = 3.0
+      val costPerMem:Double = 0.05
+      val costPerStorage:Double = 0.001
+      val costPerBw:Double = 0.0
+      val storageList=List[Storage]()
+      val characteristics:DatacenterCharacteristics =
+          new DatacenterCharacteristics(arch, os, vmm, hostList.asJava, time_zone, cost, costPerMem, costPerStorage, costPerBw)
+
+      val datacenter = new Datacenter(name, characteristics, new VmAllocationPolicySimple(hostList.asJava), storageList.asJava, 0)
+      /*try   {
+          datacenter = new Datacenter(name, characteristics, new VmAllocationPolicySimple(hostList.asJava), storageList.asJava, 0)
+      }
+      catch {
+          case e:Exception => e.printStackTrace()
+      }*/
+      //datacenter = new Datacenter(name, );
+      //datacenter = 2
+      datacenter
+  }
+
+    def createBroker():DatacenterBroker ={
+        new DatacenterBroker("Broker")
+    }
+
+    def printCloudletList(list: java.util.List[Cloudlet]): Unit = {
+        val size = list.size()
+        Log.printLine()
+        //Log.printLine("size = "+size)
+        Log.printLine("===== OUTPUT =====")
+        Log.printLine("Cloudlet ID \t STATUS \t Data center ID \t VM ID \t Time \t Start Time \t Finish Time")
+
+        val dft= new DecimalFormat("000.00")
+
+        list.asScala.foreach{cloudlet => {
+            Log.print("\t"+cloudlet.getCloudletId+"\t\t")
+            if(cloudlet.getCloudletStatus()==Cloudlet.SUCCESS)  {
+                Log.print("SUCCESS")
+
+                Log.printLine("\t\t" + cloudlet.getResourceId + "\t\t\t" + cloudlet.getVmId + "\t\t" + dft.format(cloudlet.getActualCPUTime) + "\t\t" + dft.format(cloudlet.getExecStartTime) + "\t\t" + dft.format(cloudlet.getFinishTime))
+            }
+        }}
+
     }
 }
-
-
