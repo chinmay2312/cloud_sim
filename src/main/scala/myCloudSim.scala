@@ -129,11 +129,11 @@ object myCloudSim {
         val dft= new DecimalFormat("000.00")
 
         list.asScala.foreach{cloudlet => {
-            Log.print("\t"+cloudlet.getCloudletId+"\t\t\t")
+            Log.print("\t"+cloudlet.getCloudletId+"\t\t")
             if(cloudlet.getCloudletStatus()==Cloudlet.SUCCESS)  {
                 Log.print("SUCCESS")
 
-                Log.printLine("\t\t\t\t" + cloudlet.getResourceId + "\t\t\t\t" + cloudlet.getVmId + "\t\t" + dft.format(cloudlet.getActualCPUTime) + "\t\t" + dft.format(cloudlet.getExecStartTime) + "\t\t" + dft.format(cloudlet.getFinishTime))
+                Log.printLine("\t\t\t" + cloudlet.getResourceId + "\t\t\t" + cloudlet.getVmId + "\t\t" + dft.format(cloudlet.getActualCPUTime) + "\t\t" + dft.format(cloudlet.getExecStartTime) + "\t\t" + dft.format(cloudlet.getFinishTime))
             }
         }}
 
