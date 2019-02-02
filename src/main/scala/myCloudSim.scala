@@ -27,7 +27,7 @@ object myCloudSim {
         new myCloudSim()
     }
 
-    def main(args: Array[String]) {
+    def main(args: Array[String]):Boolean= {
         println("Hello, world!")
         val num_user =1
         val calendar = Calendar.getInstance()
@@ -76,7 +76,8 @@ object myCloudSim {
         CloudSim.stopSimulation()
 
         val newList:java.util.List[Cloudlet] = broker.getCloudletReceivedList()
-        printCloudletList(newList)
+        val result:Boolean = printCloudletList(newList)
+        result
     }
 
     def createDatacenter(name: String): Datacenter ={
@@ -131,9 +132,10 @@ object myCloudSim {
         new DatacenterBroker("Broker")
     }
 
-    def printCloudletList(list: java.util.List[Cloudlet]): Unit = {
+    def printCloudletList(list: java.util.List[Cloudlet]): Boolean = {
         val size = list.size()
         Log.printLine()
+        var result = false
         //Log.printLine("size = "+size)
         Log.printLine("===== OUTPUT =====")
         Log.printLine("Cloudlet ID \t STATUS \t Data center ID \t VM ID \t\t Time \t Start Time \t Finish Time")
@@ -144,10 +146,10 @@ object myCloudSim {
             Log.print("\t"+cloudlet.getCloudletId+"\t\t")
             if(cloudlet.getCloudletStatus()==Cloudlet.SUCCESS)  {
                 Log.print("SUCCESS")
-
+                result = true
                 Log.printLine("\t\t\t" + cloudlet.getResourceId + "\t\t\t" + cloudlet.getVmId + "\t\t" + dft.format(cloudlet.getActualCPUTime) + "\t\t" + dft.format(cloudlet.getExecStartTime) + "\t\t" + dft.format(cloudlet.getFinishTime))
             }
         }}
-
+        result
     }
 }
