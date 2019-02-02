@@ -1,1 +1,89 @@
-[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidating C:\Program Files (x86)\Java\jre1.8.0_201\lib\rt.jar: class java.lang.Object now provided by C:\Program Files\Java\jdk1.8.0_144\jre\lib\rt.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidating C:\Users\anasa\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.12.8.jar: class scala.Unit now provided by C:\Users\chinm\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.12.8.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial source changes: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	removed:Set(C:\Users\anasa\Documents\GitHub\441homework1\src\main\scala\CloudSim.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set(S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\src\main\scala\myCloudSim.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	modified: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set(C:\Users\anasa\Documents\GitHub\441homework1\target\scala-2.12\classes\CloudSim$.class, C:\Users\anasa\Documents\GitHub\441homework1\target\scala-2.12\classes\CloudSim$delayedInit$body.class, C:\Users\anasa\Documents\GitHub\441homework1\target\scala-2.12\classes\CloudSim.class)[0m
+[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set(C:\Program Files (x86)\Java\jre1.8.0_201\lib\rt.jar, C:\Users\anasa\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.12.8.jar)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(CloudSim)[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set(C:\Users\anasa\Documents\GitHub\441homework1\src\main\scala\CloudSim.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set(C:\Users\anasa\Documents\GitHub\441homework1\src\main\scala\CloudSim.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(CloudSim)[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\src\main\scala\myCloudSim.scala, C:\Users\anasa\Documents\GitHub\441homework1\src\main\scala\CloudSim.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0mRecompiling all 1 sources: invalidated sources (2) exceeded 50.0% of all sources[0m
+[0m[[0m[0minfo[0m] [0m[0mCompiling 1 Scala source to S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\target\scala-2.12\classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.2.5:compile for Scala 2.12.8[0m
+[0m[[0m[0minfo[0m] [0m[0mNon-compiled module 'compiler-bridge_2.12' for Scala 2.12.8. Compiling...[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreating plain compiler interface for 2.12.8.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  > Arguments: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	-nowarn[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-d[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_e4c75da8[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Program Files\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_144\jre\classes;C:\Users\chinm\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.12.8.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_76defa\jars\org.scala-sbt\compiler-interface\compiler-interface-1.2.5.jar;C:\Users\chinm\AppData\Local\Temp\sbt_76defa\jars\org.scala-sbt\util-interface\util-interface-1.2.2.jar;C:\Users\chinm\AppData\Local\Temp\sbt_76defa\srcs\org.scala-sbt\compiler-bridge_2.12\compiler-bridge_2.12-1.2.5-sources.jar;C:\Users\chinm\.ivy2\cache\org.scala-lang\scala-compiler\jars\scala-compiler-2.12.8.jar;C:\Users\chinm\.ivy2\cache\org.scala-lang\scala-reflect\jars\scala-reflect-2.12.8.jar;C:\Users\chinm\.ivy2\cache\org.scala-lang.modules\scala-xml_2.12\bundles\scala-xml_2.12-1.0.6.jar;C:\Users\chinm\.ivy2\cache\jline\jline\jars\jline-2.14.6.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\API.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\Analyzer.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\CallbackGlobal.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\ClassName.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\Command.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\Compat.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\CompilerInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\ConsoleInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\DelegatingReporter.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\Dependency.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\ExtractAPI.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\ExtractUsedNames.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\GlobalHelpers.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\InteractiveConsoleFactory.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\InteractiveConsoleHelper.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\InteractiveConsoleInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\InteractiveConsoleResponse.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\JavaUtils.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\LocalToNonLocalClass.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\LocateClassFile.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\Log.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\Message.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Users\chinm\AppData\Local\Temp\sbt_86b46217\xsbt\ScaladocInterface.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m      [0m
+[0m[[0m[0minfo[0m] [0m[0m  Compilation completed in 12.408s.[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.2.5:compile for Scala 2.12.8[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 3ba91c47 for Scala compiler version 2.12.8[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	C:\Program Files\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_144\jre\classes;C:\Users\chinm\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.12.8.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\target\scala-2.12\classes;S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\lib\cloudsim-3.0.3-sources.jar;S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\lib\cloudsim-3.0.3.jar;S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\lib\cloudsim-examples-3.0.3-sources.jar;S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\lib\cloudsim-examples-3.0.3.jar;S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\lib\commons-math3-3.6.1.jar;S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\lib\commons-math3-3.6.1-bin.jar;S:\Spring 2019\CS441 Cloud\HW 1\chinmay_gangal_hw1\lib\cloudsim-3.0.3.jar;C:\Users\chinm\.ivy2\cache\com.typesafe\config\bundles\config-1.3.2.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 15.4723522 s[0m
+[0m[[0m[0minfo[0m] [0m[0mDone compiling.[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidating (transitively) by inheritance from CloudSim...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: Set(CloudSim)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated by transitive inheritance dependency: Set(CloudSim)[0m
+[0m[[0m[0mdebug[0m] [0m[0mChange NamesChange(CloudSim,ModifiedNames(changes = UsedName(synchronized,[Default]), UsedName($isInstanceOf,[Default]), UsedName(executionStart,[Default]), UsedName(notifyAll,[Default]), UsedName(finalize,[Default]), UsedName(args,[Default]), UsedName(wait,[Default]), UsedName($asInstanceOf,[Default]), UsedName(isInstanceOf,[Default]), UsedName(ne,[Default]), UsedName(getClass,[Default]), UsedName(##,[Default]), UsedName(eq,[Default]), UsedName(!=,[Default]), UsedName(equals,[Default]), UsedName(delayedInit,[Default]), UsedName(main,[Default]), UsedName(toString,[Default]), UsedName(clone,[Default]), UsedName(hashCode,[Default]), UsedName(notify,[Default]), UsedName(asInstanceOf,[Default]), UsedName(CloudSim,[Default]), UsedName($init$,[Default]), UsedName(==,[Default]))) invalidates 1 classes due to The CloudSim has the following regular definitions changed:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UsedName(synchronized,[Default]), UsedName($isInstanceOf,[Default]), UsedName(executionStart,[Default]), UsedName(notifyAll,[Default]), UsedName(finalize,[Default]), UsedName(args,[Default]), UsedName(wait,[Default]), UsedName($asInstanceOf,[Default]), UsedName(isInstanceOf,[Default]), UsedName(ne,[Default]), UsedName(getClass,[Default]), UsedName(##,[Default]), UsedName(eq,[Default]), UsedName(!=,[Default]), UsedName(equals,[Default]), UsedName(delayedInit,[Default]), UsedName(main,[Default]), UsedName(toString,[Default]), UsedName(clone,[Default]), UsedName(hashCode,[Default]), UsedName(notify,[Default]), UsedName(asInstanceOf,[Default]), UsedName(CloudSim,[Default]), UsedName($init$,[Default]), UsedName(==,[Default]).[0m
+[0m[[0m[0mdebug[0m] [0m[0m	> by transitive inheritance: Set(CloudSim)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	> [0m
+[0m[[0m[0mdebug[0m] [0m[0m	> [0m
+[0m[[0m[0mdebug[0m] [0m[0m        [0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidating (transitively) by inheritance from myCloudSim...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: Set(myCloudSim)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated by transitive inheritance dependency: Set(myCloudSim)[0m
+[0m[[0m[0mdebug[0m] [0m[0mChange NamesChange(myCloudSim,ModifiedNames(changes = UsedName(synchronized,[Default]), UsedName(myCloudSim,[Default]), UsedName($isInstanceOf,[Default]), UsedName(notifyAll,[Default]), UsedName(finalize,[Default]), UsedName(wait,[Default]), UsedName($asInstanceOf,[Default]), UsedName(isInstanceOf,[Default]), UsedName(ne,[Default]), UsedName(getClass,[Default]), UsedName(##,[Default]), UsedName(eq,[Default]), UsedName(!=,[Default]), UsedName(printCloudletList,[Default]), UsedName(equals,[Default]), UsedName(main,[Default]), UsedName(toString,[Default]), UsedName(clone,[Default]), UsedName(createDatacenter,[Default]), UsedName(hashCode,[Default]), UsedName(createBroker,[Default]), UsedName(notify,[Default]), UsedName(asInstanceOf,[Default]), UsedName(==,[Default]))) invalidates 1 classes due to The myCloudSim has the following regular definitions changed:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UsedName(synchronized,[Default]), UsedName(myCloudSim,[Default]), UsedName($isInstanceOf,[Default]), UsedName(notifyAll,[Default]), UsedName(finalize,[Default]), UsedName(wait,[Default]), UsedName($asInstanceOf,[Default]), UsedName(isInstanceOf,[Default]), UsedName(ne,[Default]), UsedName(getClass,[Default]), UsedName(##,[Default]), UsedName(eq,[Default]), UsedName(!=,[Default]), UsedName(printCloudletList,[Default]), UsedName(equals,[Default]), UsedName(main,[Default]), UsedName(toString,[Default]), UsedName(clone,[Default]), UsedName(createDatacenter,[Default]), UsedName(hashCode,[Default]), UsedName(createBroker,[Default]), UsedName(notify,[Default]), UsedName(asInstanceOf,[Default]), UsedName(==,[Default]).[0m
+[0m[[0m[0mdebug[0m] [0m[0m	> by transitive inheritance: Set(myCloudSim)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	> [0m
+[0m[[0m[0mdebug[0m] [0m[0m	> [0m
+[0m[[0m[0mdebug[0m] [0m[0m        [0m
+[0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll newly invalidated classes after taking into account (previously) recompiled classes:Set()[0m

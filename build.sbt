@@ -8,3 +8,4 @@ unmanagedJars in Compile += file("lib/commons-math3-3.6.1-bin.jar")
 unmanagedJars in Compile += file("lib/cloudsim-3.0.3.jar")
 
 libraryDependencies += "com.typesafe" % "config" % "1.3.2"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
