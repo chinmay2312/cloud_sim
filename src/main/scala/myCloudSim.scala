@@ -12,10 +12,20 @@ import org.cloudbus.cloudsim.Cloudlet
 import org.cloudbus.cloudsim.core.CloudSim
 import org.cloudbus.cloudsim.provisioners.{BwProvisionerSimple, PeProvisionerSimple, RamProvisionerSimple}
 
+class myCloudSim    {
+    def createBroker():DatacenterBroker ={
+        new DatacenterBroker("Broker")
+    }
+}
+
 object myCloudSim {
 
     //private val cloudletList=List[Cloudlet]()
     //private val vmList=List[Vm]()
+
+    def apply(): myCloudSim = {
+        new myCloudSim()
+    }
 
     def main(args: Array[String]) {
         println("Hello, world!")
@@ -28,6 +38,8 @@ object myCloudSim {
         val datacenter0:Datacenter = createDatacenter("Datacenter_0")
 
         val broker:DatacenterBroker=createBroker()
+        def f[T](v: T) = v
+        Log.printLine("type of cB()"+broker.getClass.getSimpleName)
         val brokerId:Int = broker.getId()
 
         val vmid =0
