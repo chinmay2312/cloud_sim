@@ -41,7 +41,7 @@ object myCloudSim {
 
         val vmid =0
         val mips = ConfigFactory.load("default.conf").getConfig("vm").getInt("mips")
-        val size:Long = ConfigFactory.load("default.conf").getConfig("vm").getInt("zize")
+        val size:Long = ConfigFactory.load("default.conf").getConfig("vm").getInt("size")
         //val ram = 512
         val ram = ConfigFactory.load("default.conf").getConfig("vm").getInt("ram")
         Log.printLine("ram size = "+ram)
