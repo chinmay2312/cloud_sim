@@ -13,9 +13,6 @@ import org.cloudbus.cloudsim.core.CloudSim
 import org.cloudbus.cloudsim.provisioners.{BwProvisionerSimple, PeProvisionerSimple, RamProvisionerSimple}
 
 class myCloudSim    {
-    def createBroker():DatacenterBroker ={
-        new DatacenterBroker("Broker")
-    }
 }
 
 object myCloudSim {
@@ -27,7 +24,7 @@ object myCloudSim {
         new myCloudSim()
     }
 
-    def main(args: Array[String]):Boolean= {
+    def main(args: Array[String]):Unit= {
         println("Hello, world!")
         val num_user =1
         val calendar = Calendar.getInstance()
@@ -43,12 +40,12 @@ object myCloudSim {
         val brokerId:Int = broker.getId()
 
         val vmid =0
-        val mips = 1000
-        val size:Long = 10000
+        val mips = ConfigFactory.load("default.conf").getConfig("vm").getInt("mips")
+        val size:Long = ConfigFactory.load("default.conf").getConfig("vm").getInt("zize")
         //val ram = 512
-        val ram = ConfigFactory.load().getConfig("vm").getInt("ram")
+        val ram = ConfigFactory.load("default.conf").getConfig("vm").getInt("ram")
         Log.printLine("ram size = "+ram)
-        val bw = 1000
+        val bw = ConfigFactory.load("default.conf").getConfig("vm").getInt("bw")
         val pesNumber = 1
         val vmm:String = "Xen"
 
@@ -77,7 +74,7 @@ object myCloudSim {
 
         val newList:java.util.List[Cloudlet] = broker.getCloudletReceivedList()
         val result:Boolean = printCloudletList(newList)
-        result
+        //result
     }
 
     def createDatacenter(name: String): Datacenter ={
@@ -93,9 +90,9 @@ object myCloudSim {
         //for(Pe pe:peList)
 
         val hostId:Int = 0
-        val ram:Int = ConfigFactory.load().getConfig("host").getInt("ram")
-        val storage:Long = 1000000
-        val bw:Int = 10000
+        val ram:Int = ConfigFactory.load("default.conf").getConfig("host").getInt("ram")
+        val storage:Long = ConfigFactory.load("default.conf").getConfig("host").getInt("storage")
+        val bw:Int = ConfigFactory.load("default.conf").getConfig("host").getInt("bw")
 
         val hostList:List[Host]= List(new Host(hostId,
             new RamProvisionerSimple(ram),
