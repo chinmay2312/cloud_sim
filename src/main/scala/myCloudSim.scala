@@ -1,5 +1,7 @@
 
 import java.util.Calendar
+
+import com.typesafe.scalalogging.Logger
 //import java.util.List
 import java.text.DecimalFormat
 
@@ -24,9 +26,14 @@ object myCloudSim {
         new myCloudSim()
     }
 
-    def main(args: Array[String]):Unit= {
+  def main(args: Array[String]):Unit= {
+
+    val logger = Logger("myLogs")
+    logger.debug(s"hey world")
+
+
         println("Hello, world!")
-        val num_user =1
+        val num_user =ConfigFactory.load("default.conf").getConfig("init").getInt("num_user")
         val calendar = Calendar.getInstance()
         val trace_flag = false
 
