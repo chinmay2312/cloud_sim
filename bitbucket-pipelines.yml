@@ -10,6 +10,6 @@ pipelines:
     - step:
         script:
           #- sbt clean compile test
-          #- sbt clean 
+          - sbt clean 
           - sbt compile 
-          - sbt "runMain myCloudSim6 'default.conf'"
+          - sbt "runMain myCloudSim6 default.conf"
