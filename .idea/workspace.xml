@@ -3,14 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="93248d34-5176-41ac-a4f9-6566dad18971" name="Default Changelist" comment="- 5 unit test&#10;- moved all cloud-related methods to class MySim">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/experiment1.conf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/experiment1.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/experiment2.conf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/experiment2.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/myCloudSim6.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/myCloudSim6.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/myCloudSimTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/myCloudSimTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/chinmay_gangal_hw1_2.12-0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/chinmay_gangal_hw1_2.12-0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/test-classes/myCloudSimTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/test-classes/myCloudSimTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/compileIncSetup/$global/streams/inc_compile_2.12.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/compileIncSetup/$global/streams/inc_compile_2.12.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/compileIncremental/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/test/copyResources/$global/streams/copy-resources" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/copyResources/$global/streams/copy-resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/test/copyResources/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/copyResources/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/definedTests/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/definedTests/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/test/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/$global/streams/succeeded_tests" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/test/$global/streams/succeeded_tests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/isModule=false name=myCloudSimTest/test/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/test/isModule=false name=myCloudSimTest/test/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-reports/TEST-myCloudSimTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-reports/TEST-myCloudSimTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-reports/myCloudSimTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-reports/myCloudSimTest.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -50,27 +62,26 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47156727">
+    <splitter split-orientation="horizontal" split-proportion="0.78706956">
       <split-first>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/scala/myCloudSim6.scala">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-408">
-                  <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-end-line="6" selection-end-column="34" />
+                <state relative-caret-position="83">
+                  <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
                   <folding>
-                    <element signature="e#374#1494#0" />
-                    <element signature="e#2407#4427#0" />
+                    <element signature="e#0#30#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/resources/experiment1.conf">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+                <state relative-caret-position="221">
+                  <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -82,20 +93,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/resources/experiment2.conf">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/scala/myCloudSimTest.scala">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="862">
-                  <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#0#25#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="221">
+                  <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -130,6 +129,7 @@
       <find>new Vm</find>
       <find>recei</find>
       <find>fore</find>
+      <find>TimeS</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,10 +154,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/default.conf" />
         <option value="$PROJECT_DIR$/src/test/resources/test1.conf" />
         <option value="$PROJECT_DIR$/bitbucket-pipelines.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/experiment1.conf" />
-        <option value="$PROJECT_DIR$/src/main/resources/experiment2.conf" />
-        <option value="$PROJECT_DIR$/src/main/scala/myCloudSim6.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/myCloudSimTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/resources/experiment2.conf" />
+        <option value="$PROJECT_DIR$/src/main/resources/experiment1.conf" />
+        <option value="$PROJECT_DIR$/src/main/scala/myCloudSim6.scala" />
       </list>
     </option>
   </component>
@@ -493,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549780062612</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- added integration test&#10;- added cost calculation&#10;- updated configurations&#10;- updated readme">
+      <created>1549785121731</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1549785121731</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -509,10 +516,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21275167" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.044966444" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -526,7 +533,7 @@
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.3286119" />
       <window_info anchor="bottom" id="Build" order="6" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="sbt-shell-toolwindow" order="7" visible="true" weight="0.1704871" />
+      <window_info active="true" anchor="bottom" id="sbt-shell-toolwindow" order="7" visible="true" weight="0.61898017" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -600,7 +607,8 @@
     <MESSAGE value="- updated default configuration&#10;- updated readme" />
     <MESSAGE value="- updated configurations&#10;- 1st unit test&#10;- updated readme" />
     <MESSAGE value="- 5 unit test&#10;- moved all cloud-related methods to class MySim" />
-    <option name="LAST_COMMIT_MESSAGE" value="- 5 unit test&#10;- moved all cloud-related methods to class MySim" />
+    <MESSAGE value="- added integration test&#10;- added cost calculation&#10;- updated configurations&#10;- updated readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added integration test&#10;- added cost calculation&#10;- updated configurations&#10;- updated readme" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_201/src.zip!/java/lang/Runnable.java" />
@@ -685,38 +693,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/myCloudSim6.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-end-line="6" selection-end-column="34" />
-          <folding>
-            <element signature="e#374#1494#0" />
-            <element signature="e#2407#4427#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/myCloudSimTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="862">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+        <state relative-caret-position="474">
+          <caret line="89" column="18" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/experiment1.conf">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/experiment2.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="221">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/experiment2.conf">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/experiment1.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        <state relative-caret-position="221">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/myCloudSim6.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

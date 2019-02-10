@@ -26,6 +26,7 @@ class MySim {
     val bw = ConfigFactory.load(configFilename).getConfig("vm").getInt("bw")
     val pesNumber = ConfigFactory.load(configFilename).getConfig("vm").getInt("pesNum")   //number of cpus
     val vmm = "Chinmay's VMs"    //VMM name
+    val policyCloudlet = ConfigFactory.load(configFilename).getConfig("vm").getString("policy")
 
     //create VMs
     //val list:List[Vm] = for(i<-0 to vms) yield new Vm(i, userId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared)
@@ -127,9 +128,9 @@ object myCloudSim6 {//extends App{
     CloudSim.init(num_user, calendar, trace_flag)
 
     //val datacenter0: Datacenter =
-      ms.createDatacenter("Datacenter_0", 1, configFilename)
+    ms.createDatacenter("Datacenter_0", 1, configFilename)
     //val datacenter1: Datacenter =
-      ms.createDatacenter("Datacenter_1",1, configFilename)
+    ms.createDatacenter("Datacenter_1",1, configFilename)
 
     val broker:DatacenterBroker = ms.createBroker("Broker")
     val brokerId:Int = broker.getId
