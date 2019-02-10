@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="441homework1,Chinmay_Gangal_hw1" />
+    <profile name="sbt 1" modules="441homework1">
+      <option name="postfixOps" value="true" />
+    </profile>
+    <profile name="sbt 2" modules="Chinmay_Gangal_hw1" />
   </component>
 </project>

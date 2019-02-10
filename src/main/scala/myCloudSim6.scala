@@ -2,6 +2,7 @@ import java.text.DecimalFormat
 import java.util.Calendar
 
 import com.typesafe.config.ConfigFactory
+import com.typesafe.scalalogging.Logger
 
 import collection.JavaConverters._
 import org.cloudbus.cloudsim._
@@ -11,19 +12,25 @@ import org.cloudbus.cloudsim.provisioners.{BwProvisionerSimple, PeProvisionerSim
 object myCloudSim6 {//extends App{
 
   def main(args: Array[String]):Unit ={
+
+    val logger = Logger("myCloudSim6")
+    logger.info("Config file chosen: " + args(0))
+    val configFilename = args(0)
     val num_user = ConfigFactory.load("default.conf").getConfig("init").getInt("num_user")
     val calendar = Calendar.getInstance()
     val trace_flag = false
     CloudSim.init(num_user, calendar, trace_flag)
 
-    val datacenter0: Datacenter = createDatacenter("Datacenter_0")
-    val datacenter1: Datacenter = createDatacenter("Datacenter_1")
+    //val datacenter0: Datacenter =
+      createDatacenter("Datacenter_0", 1)
+    //val datacenter1: Datacenter =
+      //createDatacenter("Datacenter_1",1)
 
     val broker:DatacenterBroker = createBroker()
-    val brokerId: Int = broker.getId()
+    val brokerId:Int = broker.getId
 
-    val vmList: List[Vm] = createVM(brokerId, 10)
-    val cloudletList = createCloudlet(brokerId, 15)
+    val vmList: List[Vm] = createVM(brokerId, ConfigFactory.load("default.conf").getConfig("vm").getInt("count"))
+    val cloudletList = createCloudlet(brokerId, ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("count"))
 
     broker.submitVmList(vmList.asJava)
     broker.submitCloudletList(cloudletList.asJava)
@@ -73,29 +80,33 @@ object myCloudSim6 {//extends App{
     list
   }
 
-  def createDatacenter(name: String) ={
+  def createDatacenter(name: String, hostCount: Int): Datacenter ={
 
     //val hostList =List[Host]()
 
     //val peList:List[Pe] =List[Pe]()
 
-    val mips = 1000
+    val mips = ConfigFactory.load("default.conf").getConfig("host").getInt("mips")
 
     val peList = List(new Pe(0, new PeProvisionerSimple(mips)))
-    Log.printLine("peList size="+peList.length)
-    //for(Pe pe:peList)
 
-    val hostId = 0
     val ram = ConfigFactory.load("default.conf").getConfig("host").getInt("ram")
     val storage = ConfigFactory.load("default.conf").getConfig("host").getInt("storage")
     val bw = ConfigFactory.load("default.conf").getConfig("host").getInt("bw")
 
-    val hostList = List(new Host(hostId,
+    val hostRange = 0 until hostCount toList
+    val hostList:List[Host] = hostRange.map(i=> new Host(i,
+                                                        new RamProvisionerSimple(ram),
+                                                        new BwProvisionerSimple(bw),
+                                                        storage, peList.asJava,
+                                                        new VmSchedulerTimeShared(peList.asJava)))
+
+    /*val hostList = List(new Host(hostId,
       new RamProvisionerSimple(ram),
       new BwProvisionerSimple(bw),
       storage, peList.asJava,
       new VmSchedulerTimeShared(peList.asJava)))
-
+*/
     val arch = "x86"
     val os = "Linux"
     val vmm = "Xen"
@@ -126,9 +137,9 @@ object myCloudSim6 {//extends App{
   }
 
   def printCloudletList(list: java.util.List[Cloudlet]): Boolean = {
-    val size = list.size()
+    /*val size = list.size()
     Log.printLine()
-    var result = false
+    */var result = false
     //Log.printLine("size = "+size)
     Log.printLine("===== OUTPUT =====")
     Log.printLine("Cloudlet ID \t STATUS \t Data center ID \t VM ID \t\t Time \t Start Time \t Finish Time")
@@ -137,7 +148,7 @@ object myCloudSim6 {//extends App{
 
     list.asScala.foreach{cloudlet => {
       Log.print("\t"+cloudlet.getCloudletId+"\t\t")
-      if(cloudlet.getCloudletStatus()==Cloudlet.SUCCESS)  {
+      if(cloudlet.getCloudletStatus==Cloudlet.SUCCESS)  {
         Log.print("SUCCESS")
         result = true
         Log.printLine("\t\t\t" + cloudlet.getResourceId + "\t\t\t" + cloudlet.getVmId + "\t\t" + dft.format(cloudlet.getActualCPUTime) + "\t\t" + dft.format(cloudlet.getExecStartTime) + "\t\t" + dft.format(cloudlet.getFinishTime))

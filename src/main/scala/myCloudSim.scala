@@ -29,7 +29,7 @@ object myCloudSim {
   def main(args: Array[String]):Unit= {
 
     val logger = Logger("myLogs")
-    logger.debug(s"hey world")
+    logger.debug("hey world")
 
 
         println("Hello, world!")
