@@ -33,7 +33,7 @@ object myCloudSim {
 
 
         println("Hello, world!")
-        val num_user =ConfigFactory.load("default.conf").getConfig("init").getInt("num_user")
+        val num_user =ConfigFactory.load("experiment1.conf").getConfig("init").getInt("num_user")
         val calendar = Calendar.getInstance()
         val trace_flag = false
 
@@ -47,12 +47,12 @@ object myCloudSim {
         val brokerId:Int = broker.getId()
 
         val vmid =0
-        val mips = ConfigFactory.load("default.conf").getConfig("vm").getInt("mips")
-        val size:Long = ConfigFactory.load("default.conf").getConfig("vm").getInt("size")
+        val mips = ConfigFactory.load("experiment1.conf").getConfig("vm").getInt("mips")
+        val size:Long = ConfigFactory.load("experiment1.conf").getConfig("vm").getInt("size")
         //val ram = 512
-        val ram = ConfigFactory.load("default.conf").getConfig("vm").getInt("ram")
+        val ram = ConfigFactory.load("experiment1.conf").getConfig("vm").getInt("ram")
         Log.printLine("ram size = "+ram)
-        val bw = ConfigFactory.load("default.conf").getConfig("vm").getInt("bw")
+        val bw = ConfigFactory.load("experiment1.conf").getConfig("vm").getInt("bw")
         val pesNumber = 1
         val vmm:String = "Xen"
 
@@ -97,9 +97,9 @@ object myCloudSim {
         //for(Pe pe:peList)
 
         val hostId:Int = 0
-        val ram:Int = ConfigFactory.load("default.conf").getConfig("host").getInt("ram")
-        val storage:Long = ConfigFactory.load("default.conf").getConfig("host").getInt("storage")
-        val bw:Int = ConfigFactory.load("default.conf").getConfig("host").getInt("bw")
+        val ram:Int = ConfigFactory.load("experiment1.conf").getConfig("host").getInt("ram")
+        val storage:Long = ConfigFactory.load("experiment1.conf").getConfig("host").getInt("storage")
+        val bw:Int = ConfigFactory.load("experiment1.conf").getConfig("host").getInt("bw")
 
         val hostList:List[Host]= List(new Host(hostId,
             new RamProvisionerSimple(ram),

@@ -9,38 +9,7 @@ import org.cloudbus.cloudsim._
 import org.cloudbus.cloudsim.core.CloudSim
 import org.cloudbus.cloudsim.provisioners.{BwProvisionerSimple, PeProvisionerSimple, RamProvisionerSimple}
 
-object myCloudSim6 {//extends App{
-
-  def main(args: Array[String]):Unit ={
-
-    val logger = Logger("myCloudSim6")
-    logger.info("Config file chosen: " + args(0))
-    val configFilename = args(0)
-    val num_user = ConfigFactory.load(configFilename).getConfig("init").getInt("num_user")
-    val calendar = Calendar.getInstance()
-    val trace_flag = false
-    CloudSim.init(num_user, calendar, trace_flag)
-
-    //val datacenter0: Datacenter =
-      createDatacenter("Datacenter_0", 1, configFilename)
-    //val datacenter1: Datacenter =
-      createDatacenter("Datacenter_1",1, configFilename)
-
-    val broker:DatacenterBroker = createBroker()
-    val brokerId:Int = broker.getId
-
-    val vmList: List[Vm] = createVM(brokerId, ConfigFactory.load(configFilename).getConfig("vm").getInt("count"), configFilename)
-    val cloudletList = createCloudlet(brokerId, ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("count"), configFilename)
-
-    broker.submitVmList(vmList.asJava)
-    broker.submitCloudletList(cloudletList.asJava)
-
-    CloudSim.startSimulation()
-    val newList: java.util.List[Cloudlet] = broker.getCloudletReceivedList()
-    CloudSim.stopSimulation()
-    printCloudletList(newList)
-
-  }
+class MySim {
 
   def createVM(userId: Int, vms: Int, configFilename: String): List[Vm] = {
 
@@ -96,10 +65,10 @@ object myCloudSim6 {//extends App{
 
     val hostRange = 0 until hostCount toList
     val hostList:List[Host] = hostRange.map(i=> new Host(i,
-                                                        new RamProvisionerSimple(ram),
-                                                        new BwProvisionerSimple(bw),
-                                                        storage, peList.asJava,
-                                                        new VmSchedulerTimeShared(peList.asJava)))
+      new RamProvisionerSimple(ram),
+      new BwProvisionerSimple(bw),
+      storage, peList.asJava,
+      new VmSchedulerTimeShared(peList.asJava)))
 
     /*val hostList = List(new Host(hostId,
       new RamProvisionerSimple(ram),
@@ -131,6 +100,44 @@ object myCloudSim6 {//extends App{
     //datacenter = 2
     datacenter
   }
+
+}
+
+object myCloudSim6 {//extends App{
+
+  def main(args: Array[String]):Unit ={
+
+    val ms = new MySim()
+
+    val logger = Logger("myCloudSim6")
+    logger.info("Config file chosen: " + args(0))
+    val configFilename = args(0)
+    val num_user = ConfigFactory.load(configFilename).getConfig("init").getInt("num_user")
+    val calendar = Calendar.getInstance()
+    val trace_flag = false
+    CloudSim.init(num_user, calendar, trace_flag)
+
+    //val datacenter0: Datacenter =
+      ms.createDatacenter("Datacenter_0", 1, configFilename)
+    //val datacenter1: Datacenter =
+      ms.createDatacenter("Datacenter_1",1, configFilename)
+
+    val broker:DatacenterBroker = createBroker()
+    val brokerId:Int = broker.getId
+
+    val vmList: List[Vm] = ms.createVM(brokerId, ConfigFactory.load(configFilename).getConfig("vm").getInt("count"), configFilename)
+    val cloudletList = ms.createCloudlet(brokerId, ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("count"), configFilename)
+
+    broker.submitVmList(vmList.asJava)
+    broker.submitCloudletList(cloudletList.asJava)
+
+    CloudSim.startSimulation()
+    val newList: java.util.List[Cloudlet] = broker.getCloudletReceivedList()
+    CloudSim.stopSimulation()
+    printCloudletList(newList)
+
+  }
+
 
   def createBroker():DatacenterBroker ={
     new DatacenterBroker("Broker")

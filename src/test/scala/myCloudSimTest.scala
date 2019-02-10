@@ -1,16 +1,21 @@
-import org.cloudbus.cloudsim.{DatacenterBroker, Log}
+import java.util.Calendar
+
+import org.cloudbus.cloudsim.core.CloudSim
+import org.cloudbus.cloudsim.{Datacenter, DatacenterBroker, Log}
 import org.scalatest.FlatSpec
+
 
 class myCloudSimTest extends FlatSpec {
   //test("myCloudSim.")
 
-  behavior of "createBroker() method"
-  it should "return a new object of type DatacenterBroker" in {
+  val ms = new MySim()
+  CloudSim.init(1, Calendar.getInstance(), false)
 
-    val mcs = myCloudSim
-    //val cb = mcs.main(Array())
+  behavior of "createDatacenter() method"
+  it should "return a new object of type Datacenter" in {
 
-    //assert(mcs.createBroker().getClass.getSimpleName == "DatacenterBroker")
-    //assert(cb)
+    val cdc:Datacenter = ms.createDatacenter("dc0", 2, "experiment1.conf")
+    assert(cdc.getClass.getSimpleName == "Datacenter")
   }
+
 }
