@@ -1,1 +1,10 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mmyCloudSimTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcreateDatacenter() method[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return a new object of type Datacenter[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcreateDatacenterBroker() method[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return a new object of type DatacenterBroker of name:dcb[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcreateVM() method[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return a new List of length 3 of element-type Vm[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcreateCloudlet() method[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return a new List of length 5[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return a new List of element-type Cloudlet[0m[0m

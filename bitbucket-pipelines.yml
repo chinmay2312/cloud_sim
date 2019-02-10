@@ -12,6 +12,3 @@ pipelines:
           - sbt clean compile
           - sbt test
           - sbt "runMain myCloudSim6 experiment1.conf"
-          #- sbt clean 
-          #- sbt compile 
-          #- sbt "runMain myCloudSim6 experiment1.conf"

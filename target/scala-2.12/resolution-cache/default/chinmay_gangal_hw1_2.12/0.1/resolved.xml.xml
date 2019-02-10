@@ -4,7 +4,7 @@
 		module="chinmay_gangal_hw1_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20190202000315"
+		publication="20190209223252"
 	>
 		<description>
 		Chinmay_Gangal_hw1
@@ -34,5 +34,7 @@
 		<dependency org="org.scala-lang" name="scala-library" rev="2.12.8" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="com.typesafe" name="config" rev="1.3.2" conf="compile->default(compile)"/>
 		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.5" conf="test->default(compile)"/>
+		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.scala-logging" name="scala-logging_2.12" rev="3.9.2" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

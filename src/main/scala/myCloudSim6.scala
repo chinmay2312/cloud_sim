@@ -11,6 +11,10 @@ import org.cloudbus.cloudsim.provisioners.{BwProvisionerSimple, PeProvisionerSim
 
 class MySim {
 
+  def createBroker(brokerName:String):DatacenterBroker ={
+    new DatacenterBroker(brokerName)
+  }
+
   def createVM(userId: Int, vms: Int, configFilename: String): List[Vm] = {
 
     //Creates a container to store VMs. This list is passed to the broker later
@@ -122,7 +126,7 @@ object myCloudSim6 {//extends App{
     //val datacenter1: Datacenter =
       ms.createDatacenter("Datacenter_1",1, configFilename)
 
-    val broker:DatacenterBroker = createBroker()
+    val broker:DatacenterBroker = ms.createBroker("Broker")
     val brokerId:Int = broker.getId
 
     val vmList: List[Vm] = ms.createVM(brokerId, ConfigFactory.load(configFilename).getConfig("vm").getInt("count"), configFilename)
@@ -138,16 +142,7 @@ object myCloudSim6 {//extends App{
 
   }
 
-
-  def createBroker():DatacenterBroker ={
-    new DatacenterBroker("Broker")
-  }
-
-  def printCloudletList(list: java.util.List[Cloudlet]): Boolean = {
-    /*val size = list.size()
-    Log.printLine()
-    */var result = false
-    //Log.printLine("size = "+size)
+  def printCloudletList(list: java.util.List[Cloudlet]): Unit = {
     Log.printLine("===== OUTPUT =====")
     Log.printLine("Cloudlet ID \t STATUS \t Data center ID \t VM ID \t\t Time \t Start Time \t Finish Time")
 
@@ -157,11 +152,9 @@ object myCloudSim6 {//extends App{
       Log.print("\t"+cloudlet.getCloudletId+"\t\t")
       if(cloudlet.getCloudletStatus==Cloudlet.SUCCESS)  {
         Log.print("SUCCESS")
-        result = true
         Log.printLine("\t\t\t" + cloudlet.getResourceId + "\t\t\t" + cloudlet.getVmId + "\t\t" + dft.format(cloudlet.getActualCPUTime) + "\t\t" + dft.format(cloudlet.getExecStartTime) + "\t\t" + dft.format(cloudlet.getFinishTime))
       }
     }}
-    result
   }
 
 }
