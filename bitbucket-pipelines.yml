@@ -12,4 +12,4 @@ pipelines:
           #- sbt clean compile test
           - sbt clean 
           - sbt compile 
-          - sbt runMain myCloudSim6 "default.conf"
+          - sbt run-main myCloudSim6 "default.conf"
