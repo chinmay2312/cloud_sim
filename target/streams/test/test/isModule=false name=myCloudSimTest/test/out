@@ -8,3 +8,6 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mcreateCloudlet() method[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return a new List of length 5[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should return a new List of element-type Cloudlet[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mMySim class[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should has more total cost for low-performance simulation *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  0.0 was not less than 0.0 (myCloudSimTest.scala:90)[0m[0m

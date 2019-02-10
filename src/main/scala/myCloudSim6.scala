@@ -11,11 +11,27 @@ import org.cloudbus.cloudsim.provisioners.{BwProvisionerSimple, PeProvisionerSim
 
 class MySim {
 
+  val mysimLogger = Logger("MySim")
+
   def createBroker(brokerName:String):DatacenterBroker ={
-    new DatacenterBroker(brokerName)
+    //return new instance of class DtatacenterBroker, with given name
+
+    try {
+      new DatacenterBroker(brokerName)
+    }
+    catch {
+      case _: Exception => {
+        new DatacenterBroker("Broker")
+      }
+    }
+    finally {
+      mysimLogger.error("Error in creating DatacenterBroker with given name")
+    }
   }
 
   def createVM(userId: Int, vms: Int, configFilename: String): List[Vm] = {
+
+    mysimLogger.info("Creating new list of "+ vms+ "VMs at userID="+userId)
 
     //Creates a container to store VMs. This list is passed to the broker later
 
@@ -47,6 +63,7 @@ class MySim {
     val pesNumber = 1
     val utilizationModel = new UtilizationModelFull()
 
+    //create a list of cloudlets, of length = input parameter "cloudlets", which is the number of cloudlets to be created
     val taskRange = 0 until cloudlets toList
     val list:List[Cloudlet] = taskRange.map(i => new Cloudlet(i, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel))
     //val list:List[Cloudlet] = for(i<-0 to cloudlets) yield new Cloudlet(i, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel)
@@ -56,6 +73,8 @@ class MySim {
 
   def createDatacenter(name: String, hostCount: Int, configFilename: String): Datacenter ={
 
+    mysimLogger.info("Creating new Datacenter")
+
     //val hostList =List[Host]()
 
     //val peList:List[Pe] =List[Pe]()
@@ -64,9 +83,14 @@ class MySim {
 
     val peList = List(new Pe(0, new PeProvisionerSimple(mips)))
 
+    //import configurations from chosen config file
     val ram = ConfigFactory.load(configFilename).getConfig("host").getInt("ram")
     val storage = ConfigFactory.load(configFilename).getConfig("host").getInt("storage")
     val bw = ConfigFactory.load(configFilename).getConfig("host").getInt("bw")
+
+    mysimLogger.debug("DC RAM = " + ram)
+    mysimLogger.debug("DC storage = " + storage)
+    mysimLogger.debug("DC bandwidth = " + bw)
 
     val hostRange = 0 until hostCount toList
     val hostList:List[Host] = hostRange.map(i=> new Host(i,
@@ -132,22 +156,29 @@ object myCloudSim6 {//extends App{
     //val datacenter1: Datacenter =
     ms.createDatacenter("Datacenter_1",1, configFilename)
 
+    logger.trace("Datacenters created")
+
     val broker:DatacenterBroker = ms.createBroker("Broker")
+    logger.trace("Broker created")
     val brokerId:Int = broker.getId
 
     val vmList: List[Vm] = ms.createVM(brokerId, ConfigFactory.load(configFilename).getConfig("vm").getInt("count"), configFilename)
+    logger.trace("List of VMs created")
     val cloudletList = ms.createCloudlet(brokerId, ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("count"), configFilename)
-
+    logger.trace("List of Cloudlets created")
 
     broker.submitVmList(vmList.asJava)
     broker.submitCloudletList(cloudletList.asJava)
+    logger.trace("List of VMs  & cloudlets submitted to broker")
 
     CloudSim.startSimulation()
+    logger.trace("Simulation started")
     val newList: java.util.List[Cloudlet] = broker.getCloudletReceivedList()
     //val costList:List[Double] = cloudletList.map(cldlet => cldlet.getProcessingCost)
 
     Log.printLine("Total cost = "+ms.getTotalCost(newList))
     CloudSim.stopSimulation()
+    logger.trace("Simulation finished")
     printCloudletList(newList)
 
   }

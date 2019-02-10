@@ -57,6 +57,22 @@ Summary of Differences:
 - experiment1.conf has slightly better VM characteristics (speed in MIPS, size, RAM) as compared to experiment2.conf
 - experiment1.conf uses TimeSharing Policy for Cloudlet scheduling, while experiment2.conf uses SpaceSharing Policy for Cloudlet scheduling 
 
+##Simulation Assembly
+
+- class MySim
+	- has relevant methods for creating list of VMs, creating list of cloudlets, creating datacenter with given characteristics, creating the broker entity that assigns VMs to hosts, as well as as calculating the cost for the chosen simulation as determined by a specific formula mentioned below
+	- createBroker()
+	- createVM()
+	- createCloudlet()
+	- createDatacenter()
+	- getTotalCost()
+
+- .conf files
+	- The configurations for both the simulations are present in the files under /src/main/resources folder as experiment1.conf and experiment2.conf
+
+- object myCloudSim6
+	- this has the main() method which is the primary thread of any chosen simulation. It maintains sequence of steps for building, starting and then stopping the simulation.
+
 ##Evaluation of Simulations
 In this project, we use single main class myCloudSim6.scala, and provide a choice of 2 confiuration files as 2 simulations.
 
