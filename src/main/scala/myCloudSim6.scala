@@ -105,6 +105,11 @@ class MySim {
     datacenter
   }
 
+  def getTotalCost(cldletList: java.util.List[Cloudlet]): Double = {
+    val costList = cldletList.asScala.map(cldlet => cldlet.getCostPerSec + cldlet.getActualCPUTime*0.3)
+    costList.sum
+  }
+
 }
 
 object myCloudSim6 {//extends App{
@@ -132,13 +137,17 @@ object myCloudSim6 {//extends App{
     val vmList: List[Vm] = ms.createVM(brokerId, ConfigFactory.load(configFilename).getConfig("vm").getInt("count"), configFilename)
     val cloudletList = ms.createCloudlet(brokerId, ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("count"), configFilename)
 
+
     broker.submitVmList(vmList.asJava)
     broker.submitCloudletList(cloudletList.asJava)
 
     CloudSim.startSimulation()
     val newList: java.util.List[Cloudlet] = broker.getCloudletReceivedList()
+    //val costList:List[Double] = cloudletList.map(cldlet => cldlet.getProcessingCost)
+
+    Log.printLine("Total cost = "+ms.getTotalCost(newList))
     CloudSim.stopSimulation()
-    printCloudletList(newList)
+    //printCloudletList(newList)
 
   }
 
