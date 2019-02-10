@@ -1,5 +1,7 @@
 ## CS441-Cloud: Homework 1
 
+The purpose of this project is to create multiple cloud simulations using CloudSim and evaluate the executions of applications in cloud datacenters with different characteristics and deployment models.
+
 ##Prerequisites
 * Scala 2.12
 * SBT version 1.2.8
