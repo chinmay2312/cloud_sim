@@ -55,6 +55,23 @@ Summary of Differences:
 
 - experiment1.conf has much more host storage,bandwidth, RAM and speed (i.e. MIPS) as compared to experiment2.conf
 - experiment1.conf has slightly better VM characteristics (speed in MIPS, size, RAM) as compared to experiment2.conf
+- experiment1.conf uses TimeSharing Policy for Cloudlet scheduling, while experiment2.conf uses SpaceSharing Policy for Cloudlet scheduling 
+
+##Evaluation of Simulations
+In this project, we use single main class myCloudSim6.scala, and provide a choice of 2 confiuration files as 2 simulations.
+
+The files "experiment1.conf" and "experiment2.conf" have different characteristics for the hosts and the machines.
+
+The metric for evaluation of each simulation has been formulated as the sum of cost per second of each cloudlet added to the actual CPU time occupied by each cloudlet scaled by a factor of 0.3
+
+The existing functionality in CloudSim "getProcessingCost()" considers only bandwidth, as can be verified from the source code in the open-source CloudSim project. Hence, we have implemented our own costing formula, as explained above
+
+We observe that experiment1 yields a cost of 7800, while experiment2 yields a massive cost of 150300. As can be seen, this is a huge difference for the provider as well as for the consumer.
+
+Also, experiment1 finishes execution in 250 time units, while experiment2 consumes 5000 time units
+
+##Conclusion
+From the above experiments, it is observed that time-sharing policy combined with better storage and processors on the hosts as well as VMs leads to faster as well as cheaper execution
 
 ## Author
 * Chinmay Gangal

@@ -148,7 +148,7 @@ object myCloudSim6 {//extends App{
 
     Log.printLine("Total cost = "+ms.getTotalCost(newList))
     CloudSim.stopSimulation()
-    //printCloudletList(newList)
+    printCloudletList(newList)
 
   }
 
