@@ -16,21 +16,21 @@ object myCloudSim6 {//extends App{
     val logger = Logger("myCloudSim6")
     logger.info("Config file chosen: " + args(0))
     val configFilename = args(0)
-    val num_user = ConfigFactory.load("default.conf").getConfig("init").getInt("num_user")
+    val num_user = ConfigFactory.load(configFilename).getConfig("init").getInt("num_user")
     val calendar = Calendar.getInstance()
     val trace_flag = false
     CloudSim.init(num_user, calendar, trace_flag)
 
     //val datacenter0: Datacenter =
-      createDatacenter("Datacenter_0", 1)
+      createDatacenter("Datacenter_0", 1, configFilename)
     //val datacenter1: Datacenter =
-      //createDatacenter("Datacenter_1",1)
+      createDatacenter("Datacenter_1",1, configFilename)
 
     val broker:DatacenterBroker = createBroker()
     val brokerId:Int = broker.getId
 
-    val vmList: List[Vm] = createVM(brokerId, ConfigFactory.load("default.conf").getConfig("vm").getInt("count"))
-    val cloudletList = createCloudlet(brokerId, ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("count"))
+    val vmList: List[Vm] = createVM(brokerId, ConfigFactory.load(configFilename).getConfig("vm").getInt("count"), configFilename)
+    val cloudletList = createCloudlet(brokerId, ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("count"), configFilename)
 
     broker.submitVmList(vmList.asJava)
     broker.submitCloudletList(cloudletList.asJava)
@@ -42,17 +42,17 @@ object myCloudSim6 {//extends App{
 
   }
 
-  def createVM(userId: Int, vms: Int): List[Vm] = {
+  def createVM(userId: Int, vms: Int, configFilename: String): List[Vm] = {
 
     //Creates a container to store VMs. This list is passed to the broker later
 
     //VM Parameters
-    val size = 10000    //image size (MB)
-    val ram = 512    //vm memory (MB)
-    val mips = 100
-    val bw = 1000
-    val pesNumber = 1    //number of cpus
-    val vmm = "Xen"    //VMM name
+    val size = ConfigFactory.load(configFilename).getConfig("vm").getInt("size")    //image size (MB)
+    val ram = ConfigFactory.load(configFilename).getConfig("vm").getInt("ram")    //vm memory (MB)
+    val mips = ConfigFactory.load(configFilename).getConfig("vm").getInt("mips")
+    val bw = ConfigFactory.load(configFilename).getConfig("vm").getInt("bw")
+    val pesNumber = ConfigFactory.load(configFilename).getConfig("vm").getInt("pesNum")   //number of cpus
+    val vmm = "Chinmay's VMs"    //VMM name
 
     //create VMs
     //val list:List[Vm] = for(i<-0 to vms) yield new Vm(i, userId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerTimeShared)
@@ -64,12 +64,12 @@ object myCloudSim6 {//extends App{
     list
   }
 
-  def createCloudlet(userId: Int, cloudlets: Int): List[Cloudlet] ={
+  def createCloudlet(userId: Int, cloudlets: Int, configFilename:String): List[Cloudlet] ={
 
     //cloudlet parameters
-    val length = 1000
-    val fileSize = 300
-    val outputSize = 300
+    val length = ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("length")
+    val fileSize = ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("fileSize")
+    val outputSize = ConfigFactory.load(configFilename).getConfig("cloudlet").getInt("outputSize")
     val pesNumber = 1
     val utilizationModel = new UtilizationModelFull()
 
@@ -80,19 +80,19 @@ object myCloudSim6 {//extends App{
     list
   }
 
-  def createDatacenter(name: String, hostCount: Int): Datacenter ={
+  def createDatacenter(name: String, hostCount: Int, configFilename: String): Datacenter ={
 
     //val hostList =List[Host]()
 
     //val peList:List[Pe] =List[Pe]()
 
-    val mips = ConfigFactory.load("default.conf").getConfig("host").getInt("mips")
+    val mips = ConfigFactory.load(configFilename).getConfig("host").getInt("mips")
 
     val peList = List(new Pe(0, new PeProvisionerSimple(mips)))
 
-    val ram = ConfigFactory.load("default.conf").getConfig("host").getInt("ram")
-    val storage = ConfigFactory.load("default.conf").getConfig("host").getInt("storage")
-    val bw = ConfigFactory.load("default.conf").getConfig("host").getInt("bw")
+    val ram = ConfigFactory.load(configFilename).getConfig("host").getInt("ram")
+    val storage = ConfigFactory.load(configFilename).getConfig("host").getInt("storage")
+    val bw = ConfigFactory.load(configFilename).getConfig("host").getInt("bw")
 
     val hostRange = 0 until hostCount toList
     val hostList:List[Host] = hostRange.map(i=> new Host(i,
