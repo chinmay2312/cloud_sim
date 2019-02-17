@@ -1,1 +1,19 @@
-feedback goes here
+Hi Chinmay,
+thank you for your submission. this is a well done homework. Your code is well-commented
+and you provided enough info in README. You used many hardcoded values. Your sim6 failed and you didn't analyze the results of your simulations. Yet, the quality of
+the basic implementation is very good - you have a good grade, 4%.
+
+
+[main] INFO myCloudSim6 - Config file chosen: default.conf
+Exception in thread "main" com.typesafe.config.ConfigException$Missing: No configuration setting found for key 'init'
+	at com.typesafe.config.impl.SimpleConfig.findKeyOrNull(SimpleConfig.java:156)
+	at com.typesafe.config.impl.SimpleConfig.findOrNull(SimpleConfig.java:174)
+	at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:188)
+	at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:193)
+	at com.typesafe.config.impl.SimpleConfig.getObject(SimpleConfig.java:268)
+	at com.typesafe.config.impl.SimpleConfig.getConfig(SimpleConfig.java:274)
+	at com.typesafe.config.impl.SimpleConfig.getConfig(SimpleConfig.java:41)
+	at myCloudSim6$.main(myCloudSim6.scala:149)
+	at myCloudSim6.main(myCloudSim6.scala)
+
+Process finished with exit code 1
